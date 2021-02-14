@@ -66,3 +66,6 @@ Yhat2 = (X.dot(w) + b).flatten()
 # comparing manual calculation
 # do not use == with floating points
 print(np.allclose(Yhat, Yhat2)) # -> True
+
+# saving model
+model.save('linearregression.h5')

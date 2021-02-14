@@ -54,3 +54,10 @@ print(P)
 # accuracy
 print('Manually calculated accuracy:', np.mean(P == y_test))
 print('Evaluation output:', model.evaluate(X_test, y_test)) # -> equals to the manually calculated
+
+# saving model
+model.save('linearclassification.h5')
+# loading model
+model = tf.keras.models.load_model('linearclassification.h5')
+# confirming it's the same
+print(model.evaluate(X_test, y_test))
