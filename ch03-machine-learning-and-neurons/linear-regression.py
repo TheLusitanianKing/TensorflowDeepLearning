@@ -50,3 +50,19 @@ plt.show()
 # get the slope of the line
 a = model.layers[0].get_weights()[0][0,0]
 print('Time to double:', np.log(2) / a) # should be near 2 to prove Moore's law
+
+# making predictions
+Yhat = model.predict(X).flatten()
+plt.scatter(X, Y)
+plt.plot(X, Yhat) # to make sure the line fits the data
+plt.show()
+
+# manual calculation
+# get the weighs
+w, b = model.layers[0].get_weights()
+X = X.reshape(-1, 1)
+Yhat2 = (X.dot(w) + b).flatten()
+
+# comparing manual calculation
+# do not use == with floating points
+print(np.allclose(Yhat, Yhat2)) # -> True
