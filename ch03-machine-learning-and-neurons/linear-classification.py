@@ -3,6 +3,7 @@ from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
+import numpy as np
 
 data = load_breast_cancer() # sklearn.utils.Bunch
 
@@ -40,4 +41,16 @@ print('Test score:', model.evaluate(X_test, y_test))    # accuracy: 0.9628
 plt.plot(r.history['loss'], label='loss')
 plt.plot(r.history['val_loss'], label='val_loss')
 plt.legend()
-plt.show()
+# plt.show()
+
+# making predictions
+P = model.predict(X_test)
+print(P)
+
+# actual predictions
+P = np.round(P).flatten()
+print(P)
+
+# accuracy
+print('Manually calculated accuracy:', np.mean(P == y_test))
+print('Evaluation output:', model.evaluate(X_test, y_test)) # -> equals to the manually calculated
