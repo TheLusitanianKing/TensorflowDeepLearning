@@ -1,11 +1,9 @@
-import tensorflow as tf
 import numpy as np
-import pandas as pnd
 import matplotlib.pyplot as plt
 
 from tensorflow.keras.layers import Input, Dense
 from tensorflow.keras.models import Model
-from tensorflow.keras.optimizers import SGD, Adam
+from tensorflow.keras.optimizers import Adam
 from tensorflow.python.keras.layers.recurrent import SimpleRNN
 
 # make the original data
